@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="style.css">
+
+		<!-- jQuery -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+		<!-- Highcharts -->
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+
+		<!-- JS -->
+		<script src="script/script.js" async></script>
+
+		<title>Adapt frontend test</title>
+	</head>
+	<body>
+		<div data-role="page" id="mainPage">
+			<div id="test">
+				<!-- Mobility index image (MIImg) -->
+				<div id="MIImgOuterWrapper" class="pageMainElement">
+					<div id="MIImgWell" class="well">
+						<p id="MIImgHeader">DIN BALANSE:</p>
+						<div id="MIImgInnerWrapper">
+							<span class="verticalAlignHelper"></span><img src="img/MIImg/MIImg1.png" alt="Mobility index" id="MIImg"/>
+						</div>
+					</div>
+				</div>
+
+				<!-- Activity chart -->
+				<div id="chartContainer" class="pageMainElement">
+					<div id="chartWell" class="well">
+						<div id="chart"></div>
+					</div>
+				</div>
+
+				<!-- Motivating message -->
+				<div id="messageWrapper" class="pageMainElement">
+					<div class="alert alert-success" role="alert">
+						<strong>Bra jobba!</strong> Du har forbedret balansen din den siste uka, og har nå mindre sannsynlighet for å falle. Fortsett slik!
+					</div>
+				</div>
+
+				<!-- Footer -->
+				<div class="footer" data-role="footer">
+					<p>Sist oppdatert: <span id="lastUpdatedValue">4 timer siden</span></p>
+				</div>
+				<a href="#settingsPage" id="settingsBtn" class="ui-btn ui-corner-all ui-btn-inline ui-icon-gear ui-btn-icon-left" data-transition="flip">Innstillinger</a>
+			</div>
+		</div>
+
+
+		<!-- Settings page -->
+		<div data-role="page" id="settingsPage">
+			<div id="settingsHeader" data-role="header">
+				<h1>Innstillinger</h1>
+			</div>
+			<a href="#mainPage" id="BackBtn" class="ui-btn ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left" data-transition="flip">Tilbake</a>
+
+			<div data-role="main" class="ui-content">
+				<h2 id="MIImgSelectionHeader">Representasjonsbilde for fallrisiko:</h2>
+				<div id="MIImgSelectionGroup">
+					<img src="img/MIImg/thumbnails/MIImg1.png" id="MIImg1" class="MIImgSelected" alt="Skålvekt"/>
+					<img src="img/MIImg/thumbnails/MIImg2.png" id="MIImg2" alt="Blomster"/>
+					<img src="img/MIImg/thumbnails/MIImg3.png" id="MIImg3" alt="Meter"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
