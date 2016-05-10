@@ -115,7 +115,6 @@ function setMMImg() {
     var imgPath = "img/MIImg/" + MIImgID + ".png";
     var img = document.getElementById("MIImg");
     img.src = imgPath;
-    img.style.display = 'inline-block';
     setCorrectBorder();
 }
 
@@ -159,7 +158,7 @@ function cancelChanges() {
     setMMImg();
     closeSettingsView();
     setTimeout(function () { 
-        $.mobile.changePage( "index.html#mainPage", { transition: "flip"}); 
+        $.mobile.changePage( "#mainPage", { transition: "flip"}); 
     }, 1);
 }
 
@@ -172,7 +171,7 @@ function closeSettingsView() {
     // Need to resize chart in case the window has resized while in settings view
     setTimeout(function () { 
         var chart = $('#chart').highcharts();
-        var el = $('#highcharts-0');
+        var el = $(".highcharts-container:eq(0)");
         chart.setSize(el.width(),el.height(),true);
     }, 500);
 }

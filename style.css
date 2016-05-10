@@ -5,11 +5,6 @@ body {
 	text-align: center;
 }
 
-#test {
-	width: 100%;
-	height: 100%;
-}
-
 .pageMainElement {
   position: absolute;
   width: 100%;
@@ -75,8 +70,7 @@ body {
 }
 
 #MIImg {
-	display: none; /* hidden until cookies are read and the correct image is displayed */
-    vertical-align: middle;
+	vertical-align: middle;
     max-height: 100%;
     max-width: 100%;
     margin: 0 auto;
