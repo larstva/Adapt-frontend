@@ -4,6 +4,7 @@
 var MIImgID;
 var oldMIImgID;
 var changesMade = 0;
+var chart;
 
 
 
@@ -19,18 +20,18 @@ $(document).ready(function() {
     }
     oldMIImgID = MIImgID;
     setMMImg();
-});
 
 
+    /***************************
+    ** Chart
+    ***************************/
 
-/***************************
-** Chart
-***************************/
-$(function () {
-    $('#chart').highcharts({
+    chartOptions = {
         chart: {
+            renderTo: 'chart',
             type: 'column',
-            backgroundColor: null
+            backgroundColor: null,
+            reflow: true
         },
         title: {
             text: 'Mengde fysisk aktivitet'
@@ -83,7 +84,9 @@ $(function () {
                 }
             }
         }]
-    });
+    };
+
+    chart = new Highcharts.Chart(chartOptions);
 });
 
 
@@ -168,11 +171,9 @@ function closeSettingsView() {
     changesMade = 0;
     setCookie("MIImgID", MIImgID, 7);
 
-    // Need to resize chart in case the window has resized while in settings view
+    // Need to run reflow function in case the window has resized while in settings view
     setTimeout(function () { 
-        var chart = $('#chart').highcharts();
-        var el = $(".highcharts-container:eq(0)");
-        chart.setSize(el.width(),el.height(),true);
+        chart.reflow();
     }, 500);
 }
 
