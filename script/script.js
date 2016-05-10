@@ -2,6 +2,8 @@
 ** Global variables
 ***************************/
 var MIImgID;
+var oldMIImgID;
+var changesMade = 0;
 
 
 
@@ -15,6 +17,7 @@ $(document).ready(function() {
     } else {
         MIImgID = "MIImg1";
     }
+    oldMIImgID = MIImgID;
     setMMImg();
 });
 
@@ -92,9 +95,16 @@ document.getElementById("MIImgSelectionGroup").addEventListener("click", functio
     if (e.target !== e.currentTarget) {
         var clickedID = e.target.id;
             if (clickedID != MIImgID && clickedID != null) {
+                if (clickedID == oldMIImgID) {
+                    changesMade = 0;
+                    showSaveAndCancelBtns(0);
+                } else {
+                    changesMade = 1;
+                    showSaveAndCancelBtns(1);
+                }
+
                 MIImgID = clickedID;
                 setMMImg();
-                setCookie("MIImgID", MIImgID, 7);
             }
     }
     e.stopPropagation();
@@ -105,7 +115,7 @@ function setMMImg() {
     var imgPath = "img/MIImg/" + MIImgID + ".png";
     var img = document.getElementById("MIImg");
     img.src = imgPath;
-    img.style.visibility = 'visible';
+    img.style.display = 'inline-block';
     setCorrectBorder();
 }
 
@@ -121,6 +131,50 @@ function setCorrectBorder() {
             img.className = "";
         }
     }
+}
+
+function showSaveAndCancelBtns(show) {
+    var backBtn = document.getElementById("backBtn");
+    var saveBtn = document.getElementById("saveBtn");
+    var cancelBtn = document.getElementById("cancelBtn");
+
+    if (show == 1) {
+        backBtn.style.display = "none";
+        saveBtn.style.display = "block";
+        cancelBtn.style.display = "block";
+    } else {
+        backBtn.style.display = "block";
+        saveBtn.style.display = "none";
+        cancelBtn.style.display = "none";
+    }
+}
+
+function saveChanges() {
+    oldMIImgID = MIImgID;
+    closeSettingsView();
+}
+
+function cancelChanges() {
+    MIImgID = oldMIImgID;
+    setMMImg();
+    closeSettingsView();
+    setTimeout(function () { 
+        $.mobile.changePage( "index.html#mainPage", { transition: "flip"}); 
+    }, 1);
+}
+
+
+function closeSettingsView() {
+    showSaveAndCancelBtns(0);
+    changesMade = 0;
+    setCookie("MIImgID", MIImgID, 7);
+
+    // Need to resize chart in case the window has resized while in settings view
+    setTimeout(function () { 
+        var chart = $('#chart').highcharts();
+        var el = $('#highcharts-0');
+        chart.setSize(el.width(),el.height(),true);
+    }, 500);
 }
 
 

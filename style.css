@@ -75,12 +75,11 @@ body {
 }
 
 #MIImg {
-	display: inline-block;
+	display: none; /* hidden until cookies are read and the correct image is displayed */
     vertical-align: middle;
     max-height: 100%;
     max-width: 100%;
     margin: 0 auto;
-    visibility: hidden; /* hidden until cookies are read and the correct image is displayed */
 }
 
 
@@ -108,6 +107,8 @@ body {
     max-width: 1000px;
     padding: 0 20px !important;
 }
+
+.highcharts-container{width:100% !important; height:100% !important;}
 
 
 
@@ -172,18 +173,19 @@ body {
 	font-weight: bold;
 }
 
-#backBtn {
+/*#backBtnHeader {
 	position: fixed;
     top: 0;
     left: 0;
-}
+}*/
 
 #MIImgSelectionHeader {
 	font-size: 28px;
 }
 
 #MIImgSelectionGroup {
-	width: 100%;	
+	width: 100%;
+	margin-bottom: 30px;
 }
 
 #MIImgSelectionGroup img {
@@ -202,4 +204,68 @@ body {
 .MIImgSelected {
 	border: 8px solid #474747 !important;
 	transform: scale(0.9);
+}
+
+#settingsBtnGroup {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+#backBtn {
+	display: block;
+}
+
+#saveBtn {
+	display: none;
+}
+
+#cancelBtn {
+	display: none;
+}
+
+
+.greyBtn {
+	background-color: #C4C4C4 !important;
+	border-color: #CCCCCC !important;
+	color: #000000 !important;
+	text-shadow: 0 1px 0 #eeeeee !important;
+}
+
+.greyBtn:hover {
+	background-color: #D9D7D7 !important;
+	border-color: #CCCCCC !important;
+	color: #000000 !important;
+	text-shadow: 0 1px 0 #eeeeee !important;
+}
+
+.greenBtn {
+	background-color: #009245 !important;
+	border-color: #54cc60 !important;
+	color: #ffffff !important;
+	text-shadow: 0 1px 0 #444444 !important;
+}
+
+.greenBtn:hover {
+	background-color: #45a74f !important;
+	border-color: #60e96e !important;
+	color: #ffffff !important;
+	text-shadow: 0 1px 0 #444444 !important;
+}
+
+.redBtn {
+	background-color: #ab3d41 !important;
+	border-color: #8A2F32 !important;
+	color: #ffffff !important;
+	text-shadow: 0 1px 0 #444444 !important;
+}
+
+.redBtn:hover {
+	background-color: #c4464a !important;
+	border-color: #8A2F32 !important;
+	color: #ffffff !important;
+	text-shadow: 0 1px 0 #444444 !important;
+}
+
+#hiddenBackBtn {
+	display: none;
 }

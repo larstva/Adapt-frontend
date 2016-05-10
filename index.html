@@ -54,7 +54,7 @@
 				<div class="footer" data-role="footer">
 					<p>Sist oppdatert: <span id="lastUpdatedValue">4 timer siden</span></p>
 				</div>
-				<a href="#settingsPage" id="settingsBtn" class="ui-btn ui-corner-all ui-btn-inline ui-icon-gear ui-btn-icon-left" data-transition="flip">Innstillinger</a>
+				<a href="#settingsPage" id="settingsBtn" class="ui-btn ui-corner-all ui-btn-inline ui-icon-gear ui-btn-icon-left greyBtn" data-transition="flip">Innstillinger</a>
 			</div>
 		</div>
 
@@ -64,7 +64,7 @@
 			<div id="settingsHeader" data-role="header">
 				<h1>Innstillinger</h1>
 			</div>
-			<a href="#mainPage" id="BackBtn" class="ui-btn ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left" data-transition="flip">Tilbake</a>
+			<!--<a href="#mainPage" id="backBtnHeader" class="ui-btn ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left" data-transition="flip">Tilbake</a>-->
 
 			<div data-role="main" class="ui-content">
 				<h2 id="MIImgSelectionHeader">Representasjonsbilde for fallrisiko:</h2>
@@ -73,7 +73,25 @@
 					<img src="img/MIImg/thumbnails/MIImg2.png" id="MIImg2" alt="Blomster"/>
 					<img src="img/MIImg/thumbnails/MIImg3.png" id="MIImg3" alt="Meter"/>
 				</div>
+
+				<div id="settingsBtnGroup">
+					<a href="#mainPage" onclick="closeSettingsView()" id="backBtn" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-left greyBtn" data-transition="flip">Tilbake</a>
+					<a href="#mainPage" onclick="saveChanges()" id="saveBtn" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left greenBtn" data-transition="flip">Lagre endringer</a>
+					<a href="#popupDialog" id="cancelBtn" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left greyBtn">Lukk uten å lagre</a>
+
+					<div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" data-history="false" style="max-width:400px;">
+					    <div data-role="header" data-theme="a">
+					    <h1>Forkast endringer?</h1>
+					    </div>
+					    <div role="main" class="ui-content">
+					        <h3 class="ui-title">Er du sikker på at du ikke vil lagre endringene?</h3>
+					        <a onclick="cancelChanges()" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Ja</a>
+					        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Nei</a>
+					    </div>
+					</div>
+				</div>
 			</div>
 		</div>
+
 	</body>
 </html>
